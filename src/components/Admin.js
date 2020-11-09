@@ -86,11 +86,11 @@ function Admin(){
 
     const productEles = names.map((product, idx)=>
 
-        <div className={product.price >= 10?"highStock":"lowStock"} style={{ width: '500px', marginLeft: 'auto', marginRight: 'auto'}} key={idx}>
+        <div style={{border: "2px solid black", width: '500px', marginBottom: "20px", marginLeft: 'auto', marginRight: 'auto'}} key={idx}>
 
             <h1>{product.name}</h1>
             <h2>$ {product.price}</h2>
-            <h3>Stock: {product.stock}</h3>
+            <h4 className={product.stock <= 10 ? "lowStock" : "highStock"}>Stock: {product.stock}</h4>
             <img src={product.image} alt="Product" style={{height: "100px", width: "100px"}}/>
 
             <button onClick={()=>handleDelete(product.id)}>Delete Product</button>

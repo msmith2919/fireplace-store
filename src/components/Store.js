@@ -37,13 +37,13 @@ function Store(){
 
     const productEles = names.map((product, idx)=>
 
-        <div style={{border: "2px solid black", width: '500px', marginBottom: "20px", marginLeft: 'auto', marginRight: 'auto'}} key={idx}>
+        <div onClick={() => alert(product.name + "\n$ " + product.price + "\nStock: " + product.stock)} style={{border: "2px solid black", width: '500px', marginBottom: "20px", marginLeft: 'auto', marginRight: 'auto'}} key={idx}>
 
             <h1>{product.name}</h1>
             <h2>$ {product.price}</h2>
             <h4 className={product.stock <= 10 ? "lowStock" : "highStock"}>Stock: {product.stock}</h4>
             <img src={product.image} alt="Product" style={{height: "100px", width: "100px"}}/>
-            {product.stock == 0 ? ' ' : <button>Add to Cart</button>}
+            {product.stock === 0 ? '' : <button>Add to Cart</button>}
         </div>
     );
 
